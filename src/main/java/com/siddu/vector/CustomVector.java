@@ -38,18 +38,13 @@ public class CustomVector {
 				e.printStackTrace();
 			}
 		} else {
-
 			Object temp = data[deleteIndex];
 			for (int i = deleteIndex; i < data.length - 1; i++) {
 				data[i] = data[i + 1];
 			}
-
 			index--;
-
 			System.out.println(temp + " element removed from the vector successfully");
-
 		}
-
 	}
 
 	private void increaseSizeAndReallowcate() {
@@ -66,7 +61,6 @@ public class CustomVector {
 		for (int i = 1; i <= 5; i++) {
 			customVector.add(i);
 		}
-
 		customVector.remove(6);
 
 	}
