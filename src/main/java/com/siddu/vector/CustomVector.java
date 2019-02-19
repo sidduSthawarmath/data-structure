@@ -1,13 +1,12 @@
 package com.siddu.vector;
 
+/*
+ * The vector is same as ArrayList but its add and remove methods are
+ * synchronized
+ */
+
 public class CustomVector {
 
-	/*
-	 * The vector is same as ArrayList but its add and remove methods are
-	 * synchronized
-	 */
-	
-	
 	private final int SIZE_FACTOR = 10;
 
 	private int currentSize = 0;
