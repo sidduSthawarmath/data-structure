@@ -62,7 +62,7 @@ public class CustomQueue {
 				e.printStackTrace();
 			}
 		} else {
-			temp = data[index];
+			temp = data[0];
 			for (int i = 0; i <index; i++) {
 				data[i] = data[i + 1];
 			}
