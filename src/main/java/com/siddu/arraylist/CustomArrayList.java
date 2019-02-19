@@ -35,13 +35,13 @@ public class CustomArrayList {
 		System.out.println(element + " added successfully");
 	}
 
-	public void remove(int searchIndex) {
+	public void remove(int deleteIndex) {
 
 		/*
 		 * check the search index which should not -ve val and should not be
 		 * greater than current index
 		 */
-		if (searchIndex < 0 || searchIndex > index - 1) {
+		if (deleteIndex < 0 || deleteIndex > index - 1) {
 			try {
 				throw new Exception("Array index out of bound");
 			} catch (Exception e) {
@@ -49,8 +49,8 @@ public class CustomArrayList {
 			}
 		} else {
 			/* Shifting the elements from search index */
-			Object temp = data[searchIndex];
-			for (int i = searchIndex; i < data.length - 1; i++) {
+			Object temp = data[deleteIndex];
+			for (int i = deleteIndex; i < data.length - 1; i++) {
 				data[i] = data[i + 1];
 			}
 
