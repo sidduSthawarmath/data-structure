@@ -21,7 +21,7 @@ public class CustomArrayList {
 		 * If the index of the array is equal to the current size of the array
 		 * the we need to increase the size of the array
 		 */
-		if (index == current_size - 1) {
+		if (index == data.length - 1) {
 
 			// increase the size of the array
 			increaseSizeAndReallowcate();
