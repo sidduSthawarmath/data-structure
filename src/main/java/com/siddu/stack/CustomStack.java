@@ -39,7 +39,7 @@ public class CustomStack {
 		index = index - 1;
 		if (index < 0) {
 			try {
-				throw new Exception("Stack overflowed");
+				throw new Exception("Stack underflow");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
