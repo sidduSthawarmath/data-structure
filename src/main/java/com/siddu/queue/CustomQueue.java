@@ -53,7 +53,7 @@ public class CustomQueue {
 	}
 
 	public Object dequeue() {
-		index=index-1;
+		index = index - 1;
 		Object temp = null;
 		if (index < 0) {
 			try {
@@ -63,11 +63,11 @@ public class CustomQueue {
 			}
 		} else {
 			temp = data[0];
-			for (int i = 0; i <index; i++) {
+			for (int i = 0; i < index; i++) {
 				data[i] = data[i + 1];
 			}
 			data[index] = null;
-			
+
 			System.out.println(temp + " element removed from the queue successfully");
 		}
 		return temp;
@@ -80,7 +80,6 @@ public class CustomQueue {
 		customQueue.enqueue(20);
 		customQueue.enqueue(30);
 
-		customQueue.dequeue();
 		customQueue.dequeue();
 		customQueue.dequeue();
 		customQueue.dequeue();

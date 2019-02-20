@@ -21,7 +21,7 @@ public class CustomArrayList {
 		 * If the index of the array is equal to the current size of the array
 		 * the we need to increase the size of the array
 		 */
-		if (index == data.length - 1) {
+		if (index == current_size - 1) {
 
 			// increase the size of the array
 			increaseSizeAndReallowcate();
@@ -29,7 +29,7 @@ public class CustomArrayList {
 		// Storing the current index value array to element
 		data[index] = element;
 
-		// Increasing the size of the indez
+		// Increasing the size of the index
 		index++;
 
 		System.out.println(element + " added successfully");
@@ -50,9 +50,11 @@ public class CustomArrayList {
 		} else {
 			/* Shifting the elements from search index */
 			Object temp = data[deleteIndex];
-			for (int i = deleteIndex; i < data.length - 1; i++) {
+			for (int i = deleteIndex; i < index - 1; i++) {
 				data[i] = data[i + 1];
 			}
+			// Assigning last element to null
+			data[index - 1] = null;
 
 			/* After removing element decreasing the size of the idex */
 			index--;
@@ -70,11 +72,11 @@ public class CustomArrayList {
 		Object newdata[] = new Object[current_size];
 
 		/* transfered all the element of the array to new array */
-		for (int i = 0; i <= data.length - 1; i++) {
+		for (int i = 0; i <= index - 1; i++) {
 			newdata[i] = data[i];
 		}
 
-		/* again allowacating new array to old array */
+		/* again allocating new array to old array */
 		data = newdata;
 	}
 
@@ -86,7 +88,7 @@ public class CustomArrayList {
 			customArrayList.add(k + 10);
 		}
 
-		customArrayList.remove(1);
+		customArrayList.remove(4);
 
 	}
 }
