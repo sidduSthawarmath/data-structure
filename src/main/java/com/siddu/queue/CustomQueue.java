@@ -2,87 +2,111 @@ package com.siddu.queue;
 
 public class CustomQueue {
 
-	private static int current_size = 0;
+	// Tracking count of the elements used for size, isEmpty and isFull check of
+	// the queue
+	int count = 0;
 
-	private static final int SIZE_FACTOR = 2;
+	// Queue element is removed from the front. It will get incremented when
+	// element got removed
+	int front = 0;
 
-	static Object data[];
+	// When queue element is added then rear will get incremented.
+	int rear = 0;
 
-	int index = 0;
+	// Initial capacity of the queue
+	final int CAPACITY = 3;
+
+	// Empty array of object
+	Object[] data = null;
 
 	public CustomQueue() {
-		data = new Object[SIZE_FACTOR];
-		current_size = SIZE_FACTOR;
+		data = new Object[CAPACITY];
 	}
 
-	public void enqueue(Object element) {
-
-		/*
-		 * If the index of the array is equal to the current size of the array
-		 * the we need to increase the size of the array
-		 */
-		if (index == data.length - 1) {
-
-			// increase the size of the array
-			increaseSizeAndReallowcate();
+	public void enQueue(Object element) {
+		// Before adding check the queue is full
+		if (isFull()) {
+			System.out.println("Queue is full");
+			System.exit(1);
 		}
-		// Storing the current index value array to element
-		data[index] = element;
 
-		// Increasing the size of the indez
-		index++;
+		// rear mod capacity will returns index where elements need to store in
+		// queue.
+		rear = rear % CAPACITY;
+		// store elements
+		data[rear] = element;
 
-		System.out.println(element + " added successfully");
+		// Increase rear
+		rear++;
+
+		// Increase count
+		count++;
+
+		System.out.println(element + " added to queue successfully");
 	}
 
-	private void increaseSizeAndReallowcate() {
-
-		/* Increased current size of the array */
-		current_size = current_size + SIZE_FACTOR;
-
-		/* Created new array */
-		Object newdata[] = new Object[current_size];
-
-		/* transfered all the element of the array to new array */
-		for (int i = 0; i <= data.length - 1; i++) {
-			newdata[i] = data[i];
+	public Object deQueue() {
+		// Before remove the elements from the queue we need to check whether
+		// queue is Empty.
+		if (isEmpty()) {
+			System.out.println("Queue is empty");
+			System.exit(1);
 		}
 
-		/* again allowacating new array to old array */
-		data = newdata;
-	}
+		// Current front element will be removed by getting its index
+		front = front % CAPACITY;
 
-	public Object dequeue() {
-		index = index - 1;
-		Object temp = null;
-		if (index < 0) {
-			try {
-				throw new Exception("Queue Underflow");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else {
-			temp = data[0];
-			for (int i = 0; i < index; i++) {
-				data[i] = data[i + 1];
-			}
-			data[index] = null;
+		// get elements need to remove
+		Object temp = data[front];
 
-			System.out.println(temp + " element removed from the queue successfully");
-		}
+		// assign null to removed element index
+		data[front] = null;
+		// front will get increase
+		front++;
+
+		// count will get descrease
+		count--;
+
+		System.out.println(temp + " removed from queue successfully");
 		return temp;
 	}
 
+	private boolean isEmpty() {
+		if (count == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean isFull() {
+		// if the capacity of the array and current count of the queue is equals
+		// then queue is full
+		if (count == CAPACITY) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// Count of the elements in the array is size of the queue
+	public int size() {
+		return count;
+	}
+
 	public static void main(String[] args) {
+		CustomQueue queueTest = new CustomQueue();
+		queueTest.enQueue(10);
+		queueTest.enQueue(20);
+		queueTest.enQueue(30);
+		System.out.println("Size of the queue:" + queueTest.size());
+		System.out.println("Is queue is full : " + queueTest.isFull());
 
-		CustomQueue customQueue = new CustomQueue();
-		customQueue.enqueue(10);
-		customQueue.enqueue(20);
-		customQueue.enqueue(30);
-
-		customQueue.dequeue();
-		customQueue.dequeue();
-		customQueue.dequeue();
+		queueTest.deQueue();
+		queueTest.deQueue();
+		queueTest.deQueue();
+		System.out.println("Size of the queue:" + queueTest.size());
+		System.out.println("Is queue is empty : " + queueTest.isEmpty());
 
 	}
 
