@@ -16,9 +16,13 @@ public class SinglyLinkedList {
 		System.out.println("\ninsertFirst called");
 		// Created new node
 		Node newNode = new Node();
-		// its data will be passed arg
+		
+		//its data will be passed 
 		newNode.data = element;
+		
+		//next node will the head
 		newNode.next = head;
+		
 		head = newNode;
 		System.out.println(head);
 
@@ -47,6 +51,7 @@ public class SinglyLinkedList {
 	public void deleteNode(Node node) {
 		System.out.println("\ndeleteNode called");
 		Node temp = head;
+		
 		while (temp.data != node.data && temp.next.next != null) {
 			temp = temp.next;
 		}
