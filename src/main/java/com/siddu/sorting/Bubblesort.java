@@ -1,5 +1,7 @@
 package com.siddu.sorting;
 
+import java.util.Arrays;
+
 /*
  * Bubble sort works by iterating first element to last element,
  * comparing two adjacent elements and swapping them if they are not in
@@ -13,7 +15,7 @@ public class Bubblesort {
 
 		int[] data = { 10, 40, 35, 63, 3 };
 		System.out.println("Before sort of elements");
-		displayData(data);
+		System.out.println(Arrays.toString(data));
 
 		// Each element looping
 		for (int i = 0; i < data.length; i++) {
@@ -32,12 +34,6 @@ public class Bubblesort {
 		}
 
 		System.out.println("After sort of elements");
-		displayData(data);
-	}
-
-	private static void displayData(int[] data) {
-		for (int num : data) {
-			System.out.print(num + "\n");
-		}
+		System.out.println(Arrays.toString(data));
 	}
 }
