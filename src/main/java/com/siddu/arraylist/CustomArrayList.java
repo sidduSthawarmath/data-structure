@@ -1,6 +1,5 @@
 package com.siddu.arraylist;
 
-///Tests
 public class CustomArrayList {
 
 	private static int current_size = 0;
