@@ -3,7 +3,15 @@ package com.siddu.sorting;
 import java.util.Arrays;
 
 public class QuickSort {
-
+	
+	/*1.Choose a pivot, it is generally mid element of the list.
+	2.Initialise two index variable , left=0 and right=arr.length-1
+	3.Increment left variable until you get element higher than pivot.
+	4.Decrement right variable until you get element lesser than pivot
+	5.swap arr[left] and arr[right]
+	6.Recursively sort sublists(sublist with less than pivot, sublist greater than pivot) using above algorithm.
+	7.In the end , you will get sorted array.
+	 */
 	private static int array[];
 
 	public static void sort(int[] arr) {
