@@ -48,20 +48,20 @@ public class SinglyLinkedList {
 		System.out.println(head);
 	}
 
-	public void deleteNode(Node node) {
-		System.out.println("\ndeleteNode called");
-		Node temp = head;
+	public void deleteNode(int element) {
+		Node tempNode = head;
 		
-		while (temp.data != node.data && temp.next.next != null) {
-			temp = temp.next;
-		}
-		if (temp.data != node.data && temp.next.next == null) {
-			temp.next = null;
-			head = temp;
+		//deleting first node
+		if (tempNode.data == element) {
+			tempNode = tempNode.next;
+			head = tempNode;
 		} else {
-			head = temp.next;
+			//deleting other nodes
+			while (tempNode.next != null && tempNode.next.data != element) {
+				tempNode = tempNode.next;
+			}
+			tempNode.next = tempNode.next.next;
 		}
-
 		System.out.println(head);
 	}
 
