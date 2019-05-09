@@ -50,10 +50,10 @@ public class CustomHashMap<K, V> {
 	}
 
 	public void remove(K key) {
-		Entry<K, V>  entry = data[getHashCode(key)];
+		Entry<K, V>  entry = data[getHash(key)];
 		if (entry.key == key) {
 			entry = entry.next;
-			data[getHashCode(key)] = entry;
+			data[getHash(key)] = entry;
 		} else {
 			while (entry.next != null && entry.next.key != key) {
 				entry = entry.next;
