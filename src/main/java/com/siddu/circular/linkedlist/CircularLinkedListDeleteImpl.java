@@ -38,7 +38,7 @@ class CircularLinkedListDeleteImpl {
 
 	}
 
-	public static void push(int data) {
+	public void push(int data) {
 		Node ptr = new Node();
 		ptr.data = data;
 		ptr.next = head;
@@ -70,18 +70,18 @@ class CircularLinkedListDeleteImpl {
 	}
 
 	public static void main(String[] args) {
-		CircularLinkedListDeleteImpl gfg = new CircularLinkedListDeleteImpl();
-		gfg.push(10);
-		gfg.push(20);
-		gfg.push(30);
-		gfg.push(40);
-		gfg.push(50);
+		CircularLinkedListDeleteImpl deleteCLL = new CircularLinkedListDeleteImpl();
+		deleteCLL.push(10);
+		deleteCLL.push(20);
+		deleteCLL.push(30);
+		deleteCLL.push(40);
+		deleteCLL.push(50);
 
-		gfg.delete(10);
-		gfg.delete(20);
-		gfg.delete(30);
-		gfg.delete(40);
-		gfg.delete(50);
+		deleteCLL.delete(10);
+		deleteCLL.delete(20);
+		deleteCLL.delete(30);
+		deleteCLL.delete(40);
+		deleteCLL.delete(50);
 
 	}
 }
