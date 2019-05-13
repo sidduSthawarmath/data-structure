@@ -1,5 +1,6 @@
 package com.siddu.circular.linkedlist;
 
+//Delete operation circular linked list 
 class CircularLinkedListDeleteImpl {
 
 	static Node head = null;
@@ -41,7 +42,7 @@ class CircularLinkedListDeleteImpl {
 		Node ptr = new Node();
 		ptr.data = data;
 		ptr.next = head;
-		
+
 		Node temp = head;
 		if (head == null) {
 			ptr.next = ptr;
@@ -80,7 +81,7 @@ class CircularLinkedListDeleteImpl {
 		gfg.delete(20);
 		gfg.delete(30);
 		gfg.delete(40);
-		// gfg.delete(50);
+		gfg.delete(50);
 
 	}
 }
