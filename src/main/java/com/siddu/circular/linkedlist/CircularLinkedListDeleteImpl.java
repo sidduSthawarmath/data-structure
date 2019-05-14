@@ -64,7 +64,7 @@ class CircularLinkedListDeleteImpl {
 				temp = temp.next;
 			} while (temp != head);
 		} else {
-			sbf.append("Linked list is empty..");
+			sbf.append("  Linked list is empty..");
 		}
 		return sbf.toString();
 	}
